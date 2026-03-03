@@ -1,6 +1,7 @@
 "use client";
 
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const navItems = [
   { label: "About", link: "#about" },
@@ -22,18 +23,26 @@ export default function Navbar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo / Name */}
-        <Typography variant="h6" fontWeight="bold">
-          Shem.dev
-        </Typography>
-
+       <Typography variant="h6" fontWeight="bold">
+  Shem.dev
+</Typography>
         {/* Navigation Links */}
-        <Box sx={{ display: "flex", gap: 2 }}>
-          {navItems.map((item) => (
-            <Button key={item.label} href={item.link} color="inherit">
-              {item.label}
-            </Button>
-          ))}
-        </Box>
+       <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+  {navItems.map((item) => (
+    <Button key={item.label} href={item.link} color="inherit">
+      {item.label}
+    </Button>
+  ))}
+
+  <Button
+    variant="contained"
+    startIcon={<GitHubIcon />}
+    href="https://github.com/shem958"
+    target="_blank"
+  >
+    GitHub
+  </Button>
+</Box>
       </Toolbar>
     </AppBar>
   );
