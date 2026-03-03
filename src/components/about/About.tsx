@@ -47,7 +47,8 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
           <Stack spacing={2}>
             <Typography variant="h4" fontWeight="bold">
