@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { theme } from "@/theme/theme";
+import Navbar from "@/components/navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Shem Gikunda | Portfolio",
@@ -17,6 +18,8 @@ export default function RootLayout({
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+            <Navbar />
+
           {children}
         </ThemeProvider>
       </body>
