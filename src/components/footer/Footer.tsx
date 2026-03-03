@@ -3,8 +3,8 @@
 import { Box, Stack, Typography, IconButton } from "@mui/material";
 import Container from "@/components/layout/Container";
 import { motion } from "framer-motion";
-import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
-
+import { SiGithub } from "react-icons/si";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -41,7 +41,7 @@ export default function Footer() {
                 target="_blank"
                 color="primary"
               >
-                <SiLinkedin />
+                <FaLinkedin />
               </IconButton>
               <IconButton
                 component="a"
@@ -49,7 +49,7 @@ export default function Footer() {
                 target="_blank"
                 color="primary"
               >
-                <SiTwitter />
+                <FaTwitter />
               </IconButton>
             </Stack>
           </Stack>
