@@ -18,8 +18,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-            <Navbar />
-
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
