@@ -7,6 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useEffect } from "react";
 
 const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -19,6 +20,18 @@ const handleClick = (event: React.MouseEvent<HTMLElement>) => {
 const handleClose = () => {
   setAnchorEl(null);
 };
+
+const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 const navItems = [
   { label: "About", link: "#about" },
   { label: "Skills", link: "#skills" },
@@ -31,10 +44,13 @@ export default function Navbar() {
   return (
     <AppBar
       position="sticky"
-      elevation={0}
+      elevation={scrolled ? 4 : 0}
       sx={{
-        background: "rgba(15, 23, 42, 0.8)",
+        background: scrolled
+          ? "rgba(15, 23, 42, 0.95)"
+          : "rgba(15, 23, 42, 0.6)",
         backdropFilter: "blur(10px)",
+        transition: "all 0.3s ease",
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
