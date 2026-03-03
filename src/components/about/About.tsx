@@ -1,5 +1,14 @@
 "use client";
 
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiGoland,
+  SiNestjs,
+  SiMongodb,
+  SiPostgresql,
+} from "react-icons/si";
 import { Box, Typography, Stack, Card, CardContent } from "@mui/material";
 import Container from "@/components/layout/Container";
 import { motion } from "framer-motion";
@@ -58,6 +67,37 @@ export default function About() {
               I enjoy working on projects that challenge me to think critically
               and push the boundaries of modern web development.
             </Typography>
+            <Stack direction="row" spacing={2} flexWrap="wrap" mt={2}>
+              {[
+                { icon: SiReact, label: "React" },
+                { icon: SiNextdotjs, label: "Next.js" },
+                { icon: SiTypescript, label: "TypeScript" },
+                { icon: SiGoland, label: "Golang" },
+                { icon: SiNestjs, label: "NestJS" },
+                { icon: SiMongodb, label: "MongoDB" },
+                { icon: SiPostgresql, label: "PostgreSQL" },
+              ].map((tech, index) => (
+                <motion.div
+                  key={tech.label}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    padding: "6px 12px",
+                    background: "#f3f4f6",
+                    borderRadius: "12px",
+                    fontWeight: 500,
+                    cursor: "default",
+                  }}
+                >
+                  <tech.icon size={20} color="#6366F1" />
+                  {tech.label}
+                </motion.div>
+              ))}
+            </Stack>
           </Stack>
         </motion.div>
       </Box>
