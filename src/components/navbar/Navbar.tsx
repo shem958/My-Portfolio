@@ -2,7 +2,23 @@
 
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
+const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+const open = Boolean(anchorEl);
+
+const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  setAnchorEl(event.currentTarget);
+};
+
+const handleClose = () => {
+  setAnchorEl(null);
+};
 const navItems = [
   { label: "About", link: "#about" },
   { label: "Skills", link: "#skills" },
@@ -10,6 +26,7 @@ const navItems = [
   { label: "Experience", link: "#experience" },
   { label: "Contact", link: "#contact" },
 ];
+
 
 export default function Navbar() {
   return (
@@ -27,7 +44,7 @@ export default function Navbar() {
   Shem.dev
 </Typography>
         {/* Navigation Links */}
-       <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+       <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2, alignItems: "center" }}>
   {navItems.map((item) => (
     <Button key={item.label} href={item.link} color="inherit">
       {item.label}
