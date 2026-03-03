@@ -55,7 +55,13 @@ export default function Navbar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo / Name */}
-        <Typography variant="h6" fontWeight="bold">
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          component="a"
+          href="#hero"
+          sx={{ cursor: "pointer" }}
+        >
           Shem.dev
         </Typography>
         {/* Navigation Links */}
