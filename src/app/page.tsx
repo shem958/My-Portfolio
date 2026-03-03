@@ -3,7 +3,6 @@ import About from "@/components/about/About";
 import Skills from "@/components/skills/Skills";
 import Projects from "@/components/projects/Projects";
 import Experience from "@/components/experience/Experience";
-import Certifications from "@/components/certifications/Certifications";
 import Contact from "@/components/contact/Contact";
 
 export default function Home() {
@@ -28,11 +27,6 @@ export default function Home() {
       <section id="experience">
         <Experience />
       </section>
-
-      <section id="certifications">
-        <Certifications />
-      </section>
-
       <section id="contact">
         <Contact />
       </section>
