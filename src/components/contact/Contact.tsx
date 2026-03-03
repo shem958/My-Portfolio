@@ -10,7 +10,8 @@ import {
 } from "@mui/material";
 import Container from "@/components/layout/Container";
 import { motion } from "framer-motion";
-import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -63,7 +64,7 @@ export default function Contact() {
             target="_blank"
             color="primary"
           >
-            <SiLinkedin />
+            <FaLinkedin />
           </IconButton>
           <IconButton
             component="a"
@@ -71,7 +72,7 @@ export default function Contact() {
             target="_blank"
             color="primary"
           >
-            <SiTwitter />
+            <FaTwitter />
           </IconButton>
         </Stack>
       </Stack>
