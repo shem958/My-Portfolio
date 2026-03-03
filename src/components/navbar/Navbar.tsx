@@ -27,7 +27,6 @@ const navItems = [
   { label: "Contact", link: "#contact" },
 ];
 
-
 export default function Navbar() {
   return (
     <AppBar
@@ -40,27 +39,60 @@ export default function Navbar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo / Name */}
-       <Typography variant="h6" fontWeight="bold">
-  Shem.dev
-</Typography>
+        <Typography variant="h6" fontWeight="bold">
+          Shem.dev
+        </Typography>
         {/* Navigation Links */}
-       <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2, alignItems: "center" }}>
-  {navItems.map((item) => (
-    <Button key={item.label} href={item.link} color="inherit">
-      {item.label}
-    </Button>
-  ))}
+        <Box
+          sx={{
+            display: { xs: "none", md: "flex" },
+            gap: 2,
+            alignItems: "center",
+          }}
+        >
+          {navItems.map((item) => (
+            <Button key={item.label} href={item.link} color="inherit">
+              {item.label}
+            </Button>
+          ))}
 
-  <Button
-    variant="contained"
-    startIcon={<GitHubIcon />}
-    href="https://github.com/shem958"
-    target="_blank"
-  >
-    GitHub
-  </Button>
-</Box>
+          <Button
+            variant="contained"
+            startIcon={<GitHubIcon />}
+            href="https://github.com/shem958"
+            target="_blank"
+          >
+            GitHub
+          </Button>
+        </Box>
+        <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <IconButton color="inherit" onClick={handleClick}>
+            <MenuIcon />
+          </IconButton>
+        </Box>
       </Toolbar>
+
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+        {navItems.map((item) => (
+          <MenuItem
+            key={item.label}
+            onClick={handleClose}
+            component="a"
+            href={item.link}
+          >
+            {item.label}
+          </MenuItem>
+        ))}
+
+        <MenuItem
+          component="a"
+          href="https://github.com/shem958"
+          target="_blank"
+          onClick={handleClose}
+        >
+          GitHub
+        </MenuItem>
+      </Menu>
     </AppBar>
   );
 }
