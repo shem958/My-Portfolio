@@ -47,24 +47,14 @@ export const ThemeModeProvider = ({ children }: { children: React.ReactNode }) =
 
   const theme = getAppTheme(mode);
 
-  // Avoid hydration mismatch by waiting for client-side mounting
-  if (!mounted) {
-    // During SSR/initial load, render children in dark mode wrapper without actual hydrations
-    return (
-      <ThemeContext.Provider value={{ mode: "dark", toggleThemeMode: () => {} }}>
-        <MuiThemeProvider theme={getAppTheme("dark")}>
-          <CssBaseline />
-          <div style={{ visibility: "hidden" }}>{children}</div>
-        </MuiThemeProvider>
-      </ThemeContext.Provider>
-    );
-  }
-
   return (
     <ThemeContext.Provider value={{ mode, toggleThemeMode }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <div className={mode === "dark" ? "dark-mode-bg" : "light-mode-bg"}>
+        <div 
+          className={mode === "dark" ? "dark-mode-bg" : "light-mode-bg"}
+          style={{ visibility: mounted ? "visible" : "hidden" }}
+        >
           {/* Ambient Glow Elements */}
           <div className="aurora-bg">
             <div

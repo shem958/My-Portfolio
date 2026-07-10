@@ -42,14 +42,14 @@ export default function Experience() {
           </Box>
 
           {/* Timeline Wrapper */}
-          <Box sx={{ width: "100%", maxWidth: 800, position: "relative", pl: { xs: 3, md: 4 } }}>
+          <Box sx={{ width: "100%", maxWidth: 800, position: "relative", pl: { xs: "32px", md: "48px" } }}>
             {/* Timeline Vertical Axis Line */}
             <Box
               sx={{
                 position: "absolute",
                 top: 0,
                 bottom: 0,
-                left: { xs: 15, md: 23 },
+                left: { xs: "14px", md: "22px" },
                 width: "4px",
                 background: `linear-gradient(180deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
                 borderRadius: "2px",
@@ -64,7 +64,7 @@ export default function Experience() {
                   <Box
                     sx={{
                       position: "absolute",
-                      left: { xs: -24, md: -24 },
+                      left: { xs: "-27px", md: "-35px" },
                       top: 10,
                       width: 22,
                       height: 22,

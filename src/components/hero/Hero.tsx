@@ -303,8 +303,8 @@ export default function Hero() {
                           {item.text}
                         </Typography>
                       ) : (
-                        <Typography fontFamily="var(--font-mono)" sx={{ color: theme.palette.text.secondary }}>
-                          <pre>{item.text}</pre>
+                        <Typography component="pre" fontFamily="var(--font-mono)" sx={{ color: theme.palette.text.secondary, margin: 0, whiteSpace: "pre-wrap" }}>
+                          {item.text}
                         </Typography>
                       )}
                     </Box>
